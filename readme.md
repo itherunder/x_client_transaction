@@ -1,0 +1,1 @@
+rust version for https://github.com/d60/twikit/tree/main/twikit/x_client_transaction
