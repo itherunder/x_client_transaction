@@ -80,6 +80,13 @@ impl Curve {
             Curve::Int(i) => *i as f64,
         }
     }
+
+    pub fn as_i64(&self) -> i64 {
+        match self {
+            Curve::Float(f) => f.trunc() as i64,
+            Curve::Int(i) => *i,
+        }
+    }
 }
 
 impl Default for Curve {
