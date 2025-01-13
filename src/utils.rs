@@ -5,8 +5,6 @@ use regex::Regex;
 use reqwest::Method;
 use scraper::{Html, Selector};
 
-use crate::cubic_curve::Curve;
-
 pub async fn handle_x_migration(http_cli: &reqwest::Client) -> Result<Html, anyhow::Error> {
     let migration_redirection_regex = Regex::new(
         r#"(http(?:s)?://(?:www\.)?(twitter|x){1}\.com(/x)?/migrate([/?])?tok=[a-zA-Z0-9%\-_]+)+"#,
@@ -102,16 +100,14 @@ pub fn float_to_hex(mut x: f64) -> String {
     result.into_iter().collect()
 }
 
-pub fn is_odd(num: Curve) -> f64 {
-    if match num {
-        Curve::Float(f) => f % 2.0 != 0.0,
-        Curve::Int(i) => i % 2 != 0,
-    } {
+pub fn is_odd(num: i64) -> f64 {
+    if num % 2 == 1{
         -1.0
     } else {
         0.0
     }
 }
+
 
 pub fn base64_encode(input: &[u8]) -> String {
     general_purpose::STANDARD.encode(input)

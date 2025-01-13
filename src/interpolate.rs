@@ -1,6 +1,4 @@
-use crate::cubic_curve::Curve;
-
-pub fn interpolate(from_list: Vec<Curve>, to_list: Vec<Curve>, f: Curve) -> Vec<Curve> {
+pub fn interpolate(from_list: Vec<f64>, to_list: Vec<f64>, f: f64) -> Vec<f64> {
     if from_list.len() != to_list.len() {
         panic!("Mismatched interpolation arguments {from_list:?}: {to_list:?}")
     }
@@ -13,6 +11,6 @@ pub fn interpolate(from_list: Vec<Curve>, to_list: Vec<Curve>, f: Curve) -> Vec<
     out
 }
 
-pub fn interpolate_num(from_val: Curve, to_val: Curve, f: Curve) -> Curve {
-    from_val * (1 - f) + to_val * f
+pub fn interpolate_num(from_val: f64, to_val: f64, f: f64) -> f64 {
+    from_val * (1.0 - f) + to_val * f
 }
