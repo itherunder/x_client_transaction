@@ -2,7 +2,6 @@ pub struct Cubic {
     pub curves: Vec<f64>,
 }
 
-
 impl Cubic {
     pub fn new(curves: Vec<f64>) -> Cubic {
         Cubic { curves }

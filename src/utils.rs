@@ -101,13 +101,12 @@ pub fn float_to_hex(mut x: f64) -> String {
 }
 
 pub fn is_odd(num: i64) -> f64 {
-    if num % 2 == 1{
+    if num % 2 == 1 {
         -1.0
     } else {
         0.0
     }
 }
-
 
 pub fn base64_encode(input: &[u8]) -> String {
     general_purpose::STANDARD.encode(input)
